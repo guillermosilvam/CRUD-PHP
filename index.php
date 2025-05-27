@@ -1,7 +1,7 @@
 <?php include "app/config/database.php"; ?>
 <?php include "app/includes/header.php"; ?>
 
-<div class="w-1/2 max-w-xs mx-auto my-20 p-8 bg-white rounded-lg shadow-md border border-gray-200 text-center">
+<div class="w-1/2 max-w-xs mx-auto my-20 p-8 bg-white rounded-lg shadow-lg border border-gray-200 text-center">
     <h1 class="text-2xl font-bold mb-6">
         <span class="text-cyan-500">PHP</span>
         <span class="text-gray-800">CRUD</span>

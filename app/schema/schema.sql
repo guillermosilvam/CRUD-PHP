@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 27-05-2025 a las 20:45:33
+-- Tiempo de generación: 27-05-2025 a las 21:38:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -117,6 +117,7 @@ INSERT INTO `trenes` (`codigo`, `nombre`, `velocidad`, `capacidad_total`, `capac
 CREATE TABLE `usuarios` (
   `pasaporte` int(15) NOT NULL,
   `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
   `edad` int(3) NOT NULL,
   `sexo` enum('Masculino','Femenino') NOT NULL,
   `tipo` enum('Operador','Supervisor') NOT NULL,
@@ -127,9 +128,9 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`pasaporte`, `nombre`, `edad`, `sexo`, `tipo`, `clave`) VALUES
-(648984, 'Guillermo Silva', 19, 'Masculino', 'Supervisor', '1234'),
-(4984658, 'Gilberto Wu', 21, 'Masculino', 'Operador', '1234');
+INSERT INTO `usuarios` (`pasaporte`, `nombre`, `apellido`, `edad`, `sexo`, `tipo`, `clave`) VALUES
+(648984, 'Guillermo Silva', '', 19, 'Masculino', 'Supervisor', '1234'),
+(4984658, 'Gilberto Wu', '', 21, 'Masculino', 'Operador', '1234');
 
 -- --------------------------------------------------------
 

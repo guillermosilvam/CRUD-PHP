@@ -4,37 +4,32 @@
     Crear Cuenta
   </h2>
   <form class="space-y-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 gap-4">
       <div class="space-y-2">
-        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required
-          class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
-      </div>
-      <div class="space-y-2">
-        <label for="apellido" class="block text-sm font-medium text-gray-700">Apellido</label>
-        <input type="text" id="apellido" name="apellido" required
+        <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+        <input type="text" name="name" required
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
       </div>
     </div>
     <div class="space-y-2">
-      <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
-      <input type="email" id="email" name="email" required
+      <label for="lastName" class="block text-sm font-medium text-gray-700">Apellido</label>
+      <input type="text" name="lastName" required
         class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
     </div>
     <div class="space-y-2">
-      <label for="usuario" class="block text-sm font-medium text-gray-700">Nombre de Usuario</label>
-      <input type="text" id="usuario" name="usuario" required
+      <label for="passport" class="block text-sm font-medium text-gray-700">Pasaporte</label>
+      <input type="text" name="passport" required
         class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div class="space-y-2">
         <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
-        <input type="password" id="password" name="password" required
+        <input type="password" name="password" required
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
       </div>
       <div class="space-y-2">
         <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirmar Contraseña</label>
-        <input type="password" id="confirm_password" name="confirm_password" required
+        <input type="password" name="confirm_password" required
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
       </div>
     </div>
