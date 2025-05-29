@@ -7,9 +7,9 @@
                 <span class="text-white">CRUD</span>
             </h1>
             <ul class="text-xl font-light text-white flex gap-6 mr-10">
-                <li class=""><a class="relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full" href="">Reservacion</a></li>
-                <li class=""><a class="relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full" href="">Trenes</a></li>
-                <li class=""><a class="relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full" href="">Ciudades</a></li>
+                <li class=""><a class="relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full" href="/server/static/templates/train_views/read_reservation.php">Reservacion</a></li>
+                <li class=""><a class="relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full" href="/server/static/templates/train_views/read_train.php">Trenes</a></li>
+                <li class=""><a class="relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full" href="/server/static/templates/train_views/read_city.php">Ciudades</a></li>
             </ul>
             <!-- <button class="mr-10">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
