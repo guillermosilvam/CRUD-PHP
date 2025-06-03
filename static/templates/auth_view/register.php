@@ -3,33 +3,49 @@
   <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
     Crear Cuenta
   </h2>
-  <form class="space-y-4">
+  <form class="space-y-4" action="/server/app/controllers/auth_controllers/register_auth.php" method="POST"">
     <div class="grid grid-cols-1 gap-4">
       <div class="space-y-2">
-        <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-        <input type="text" name="name" required
+        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+        <input type="text" name="nombre" required
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
       </div>
     </div>
     <div class="space-y-2">
-      <label for="lastName" class="block text-sm font-medium text-gray-700">Apellido</label>
-      <input type="text" name="lastName" required
+      <label for="apellido" class="block text-sm font-medium text-gray-700">Apellido</label>
+      <input type="text" name="apellido" required
         class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
     </div>
     <div class="space-y-2">
-      <label for="passport" class="block text-sm font-medium text-gray-700">Pasaporte</label>
-      <input type="text" name="passport" required
+      <label for="pasaporte" class="block text-sm font-medium text-gray-700">Pasaporte</label>
+      <input type="text" name="pasaporte" required
         class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div class="space-y-2">
-        <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
-        <input type="password" name="password" required
+        <label for="edad" class="block text-sm font-medium text-gray-700">Edad</label>
+        <input type="number" name="edad" min="0" required
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
       </div>
       <div class="space-y-2">
-        <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirmar Contraseña</label>
-        <input type="password" name="confirm_password" required
+        <label for="sexo" class="block text-sm font-medium text-gray-700">Sexo</label>
+        <select name="sexo" required
+          class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200">
+          <option value="">Seleccione</option>
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="space-y-2">
+        <label for="clave" class="block text-sm font-medium text-gray-700">Contraseña</label>
+        <input type="password" name="clave" required
+          class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
+      </div>
+      <div class="space-y-2">
+        <label for="confirmar_clave" class="block text-sm font-medium text-gray-700">Confirmar Contraseña</label>
+        <input type="password" name="confirmar_clave" required
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
       </div>
     </div>
