@@ -4,10 +4,10 @@ function isLoggedIn() {
     return isset($_SESSION['user_id']);
 }
 
-function registerUser($name, $lastName, $passport, $age, $password) {
+function registerUser($name, $lastName, $passport, $age, $gender, $password) {
     global $conn;
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO usuarios (nombre, apellido, pasaporte, edad, clave) VALUES ('$name', '$lastName', '$passport', '$age','$hashedPassword')";
+    $sql = "INSERT INTO usuarios (nombre, apellido, pasaporte, edad, sexo, clave) VALUES ('$name', '$lastName', '$passport', '$age', '$gender','$hashedPassword')";
     return mysqli_query($conn, $sql);
 }
 

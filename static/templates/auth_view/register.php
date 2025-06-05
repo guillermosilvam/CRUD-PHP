@@ -31,9 +31,8 @@
         <label for="sexo" class="block text-sm font-medium text-gray-700">Sexo</label>
         <select name="sexo" required
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200">
-          <option value="">Seleccione</option>
-          <option value="M">Masculino</option>
-          <option value="F">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
         </select>
       </div>
     </div>
