@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 27-05-2025 a las 21:38:57
+-- Tiempo de generación: 05-06-2025 a las 17:18:45
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,7 +38,9 @@ CREATE TABLE `ciudades` (
 
 INSERT INTO `ciudades` (`codigo`, `nombre`) VALUES
 (112233, 'Caracas'),
-(445566, 'Merida');
+(445568, 'El Tigre'),
+(445566, 'Merida'),
+(445567, 'Valle de la Pascua');
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,6 @@ CREATE TABLE `trenes` (
   `codigo` int(15) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `velocidad` int(3) NOT NULL,
-  `capacidad_total` int(3) NOT NULL,
   `capacidad_economica` int(2) NOT NULL,
   `capacidad_turista` int(2) NOT NULL,
   `capacidad_primera` int(2) NOT NULL
@@ -104,9 +105,10 @@ CREATE TABLE `trenes` (
 -- Volcado de datos para la tabla `trenes`
 --
 
-INSERT INTO `trenes` (`codigo`, `nombre`, `velocidad`, `capacidad_total`, `capacidad_economica`, `capacidad_turista`, `capacidad_primera`) VALUES
-(7777, 'Nozomi', 100, 120, 40, 40, 40),
-(8888, 'Hikari', 200, 200, 100, 50, 50);
+INSERT INTO `trenes` (`codigo`, `nombre`, `velocidad`, `capacidad_economica`, `capacidad_turista`, `capacidad_primera`) VALUES
+(7777, 'Nozomi', 100, 40, 40, 40),
+(8888, 'Hikari', 200, 100, 50, 50),
+(8891, 'Papita', 150, 30, 40, 30);
 
 -- --------------------------------------------------------
 
@@ -130,7 +132,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`pasaporte`, `nombre`, `apellido`, `edad`, `sexo`, `tipo`, `clave`) VALUES
 (648984, 'Guillermo Silva', '', 19, 'Masculino', 'Supervisor', '1234'),
-(4984658, 'Gilberto Wu', '', 21, 'Masculino', 'Operador', '1234');
+(4984658, 'Gilberto Wu', '', 21, 'Masculino', 'Operador', '1234'),
+(12345678, 'Aquiles', 'Torrealba', 30, 'Masculino', 'Operador', '$2y$10$xqVIvEeC6qtvdVb5JetUQOKPIxKPOBPPmlw/7nGIWbYqd0xuaGdXO'),
+(30741725, 'Carlos', 'Arvelo', 20, 'Masculino', 'Operador', '$2y$10$hZ/d8sa4vmQop4qSwKy8/.RWAAaQzv2XhCVd4k7yS4aIddlrjj6.q');
 
 -- --------------------------------------------------------
 
@@ -152,7 +156,9 @@ CREATE TABLE `viajes` (
 --
 
 INSERT INTO `viajes` (`codigo`, `fk_codigo_tren`, `fk_codigo_origen`, `fk_codigo_destino`, `fecha`, `hora`) VALUES
-(1441, 8888, 112233, 445566, '2025-05-27', '09:00:00');
+(1441, 8888, 112233, 445566, '2025-05-27', '09:00:00'),
+(1442, 8888, 112233, 445567, '2025-06-18', '12:30:00'),
+(1444, 7777, 445566, 445568, '2025-06-13', '00:40:00');
 
 --
 -- Índices para tablas volcadas
@@ -206,10 +212,28 @@ ALTER TABLE `viajes`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `ciudades`
+--
+ALTER TABLE `ciudades`
+  MODIFY `codigo` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=445572;
+
+--
 -- AUTO_INCREMENT de la tabla `reservaciones`
 --
 ALTER TABLE `reservaciones`
   MODIFY `codigo` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `trenes`
+--
+ALTER TABLE `trenes`
+  MODIFY `codigo` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8893;
+
+--
+-- AUTO_INCREMENT de la tabla `viajes`
+--
+ALTER TABLE `viajes`
+  MODIFY `codigo` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1446;
 
 --
 -- Restricciones para tablas volcadas
