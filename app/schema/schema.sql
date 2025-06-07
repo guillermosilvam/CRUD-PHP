@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 05-06-2025 a las 17:18:45
+-- Tiempo de generación: 06-06-2025 a las 16:19:59
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -45,6 +45,20 @@ INSERT INTO `ciudades` (`codigo`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `pasaporte` int(15) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `edad` int(3) NOT NULL,
+  `sexo` enum('Masculino','Femenino') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pasajeros`
 --
 
@@ -55,14 +69,6 @@ CREATE TABLE `pasajeros` (
   `clase` enum('Primera','Turista','Economica') NOT NULL DEFAULT 'Economica',
   `precio` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `pasajeros`
---
-
-INSERT INTO `pasajeros` (`fk_pasaporte`, `fk_codigo_reservacion`, `asiento`, `clase`, `precio`) VALUES
-(648984, 1, 'P2', 'Primera', 800),
-(4984658, 1, 'P1', 'Primera', 800);
 
 -- --------------------------------------------------------
 
@@ -78,13 +84,6 @@ CREATE TABLE `reservaciones` (
   `estado` enum('Activo','Inactivo') NOT NULL DEFAULT 'Activo',
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `reservaciones`
---
-
-INSERT INTO `reservaciones` (`codigo`, `fk_pasaporte_solicitante`, `fk_codigo_viaje`, `cantidad_puestos`, `estado`, `fecha_creacion`) VALUES
-(1, 4984658, 1441, 2, 'Activo', '2025-05-27 02:46:54');
 
 -- --------------------------------------------------------
 
@@ -172,6 +171,12 @@ ALTER TABLE `ciudades`
   ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`pasaporte`);
+
+--
 -- Indices de la tabla `pasajeros`
 --
 ALTER TABLE `pasajeros`
@@ -183,8 +188,8 @@ ALTER TABLE `pasajeros`
 --
 ALTER TABLE `reservaciones`
   ADD PRIMARY KEY (`codigo`),
-  ADD KEY `fk_codigo_solicitante` (`fk_pasaporte_solicitante`),
-  ADD KEY `fk_codigo_viaje` (`fk_codigo_viaje`);
+  ADD KEY `fk_codigo_viaje` (`fk_codigo_viaje`),
+  ADD KEY `reservaciones_cliente_fk` (`fk_pasaporte_solicitante`);
 
 --
 -- Indices de la tabla `trenes`
@@ -243,14 +248,14 @@ ALTER TABLE `viajes`
 -- Filtros para la tabla `pasajeros`
 --
 ALTER TABLE `pasajeros`
-  ADD CONSTRAINT `pasajeros_ibfk_1` FOREIGN KEY (`fk_pasaporte`) REFERENCES `usuarios` (`pasaporte`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pasajeros_cliente_fk` FOREIGN KEY (`fk_pasaporte`) REFERENCES `clientes` (`pasaporte`) ON DELETE CASCADE,
   ADD CONSTRAINT `pasajeros_ibfk_2` FOREIGN KEY (`fk_codigo_reservacion`) REFERENCES `reservaciones` (`codigo`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `reservaciones`
 --
 ALTER TABLE `reservaciones`
-  ADD CONSTRAINT `reservaciones_ibfk_1` FOREIGN KEY (`fk_pasaporte_solicitante`) REFERENCES `usuarios` (`pasaporte`) ON DELETE CASCADE,
+  ADD CONSTRAINT `reservaciones_cliente_fk` FOREIGN KEY (`fk_pasaporte_solicitante`) REFERENCES `clientes` (`pasaporte`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservaciones_ibfk_2` FOREIGN KEY (`fk_codigo_viaje`) REFERENCES `viajes` (`codigo`) ON DELETE CASCADE;
 
 --
