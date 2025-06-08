@@ -1,6 +1,6 @@
 <?php include "header.php" ?>
 <div class="w-screen h-screen ">
-    <div class="bg-gray-800 w-full h-[6%] flex items-center ">
+    <div class="bg-gray-800 w-full h-[6%] flex items-center fixed top-0 left-0 z-50">
         <nav class="flex items-center justify-between w-full">
             <h1 class="text-2xl font-bold text-white ml-10">
                 <a href="/server/static/templates/dashboard/dashboard.php">
@@ -39,7 +39,7 @@
             </button> -->
         </nav>
     </div>
-    <main class="w-full h-[94%]">
+    <main class="w-full h-[94%] pt-16">
         <!-- <aside class="h-full bg-gray-800 w-1/5 "></aside>
     
     </button> -->
