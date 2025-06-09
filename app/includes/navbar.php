@@ -44,15 +44,8 @@
                 </li>
 
             </ul>
-            <!-- <button class="mr-10">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button> -->
         </nav>
     </div>
     <main class="w-full h-[94%] pt-16">
-        <!-- <aside class="h-full bg-gray-800 w-1/5 "></aside>
-    
-    </button> -->
+        <!-- Contenido de la pagina -->
     <script src="/server/static/scripts/navbarMenu.js"></script>

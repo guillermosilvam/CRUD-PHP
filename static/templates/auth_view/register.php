@@ -21,19 +21,27 @@
       <input type="text" name="pasaporte" required
         class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="space-y-2">
-        <label for="edad" class="block text-sm font-medium text-gray-700">Edad</label>
-        <input type="number" name="edad" min="0" required
-          class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
-      </div>
-      <div class="space-y-2">
+    <div class="flex flex-col md:flex-row gap-4 mb-4">
+      <div class="flex-1 min-w-0">
         <label for="sexo" class="block text-sm font-medium text-gray-700">Sexo</label>
         <select name="sexo" required
-          class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200">
+          class="w-full max-w-xs px-3 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 text-sm focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200">
           <option value="Masculino">Masculino</option>
           <option value="Femenino">Femenino</option>
         </select>
+      </div>
+      <div class="flex-1 min-w-0">
+        <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo de usuario</label>
+        <select name="tipo" required
+          class="w-full max-w-xs px-3 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 text-sm focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200">
+          <option value="Operador">Operador</option>
+          <option value="Supervisor">Supervisor</option>
+        </select>
+      </div>
+      <div class="flex-1 min-w-0">
+        <label for="edad" class="block text-sm font-medium text-gray-700">Edad</label>
+        <input type="number" name="edad" min="0" required
+          class="w-full max-w-xs px-3 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 text-sm focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -46,16 +54,6 @@
         <label for="confirmar_clave" class="block text-sm font-medium text-gray-700">Confirmar Contraseña</label>
         <input type="password" name="confirmar_clave" required
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
-      </div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="space-y-2">
-        <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo de usuario</label>
-        <select name="tipo" required
-          class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200">
-          <option value="Operador">Operador</option>
-          <option value="Supervisor">Supervisor</option>
-        </select>
       </div>
     </div>
     <button type="submit"
