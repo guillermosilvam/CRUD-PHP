@@ -21,6 +21,15 @@
                 <li class=""><a
                         class="relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full"
                         href="/server/static/templates/trip_views/read_trip.php">Viajes</a></li>
+                <li class="relative" id="reportes-menu-container">
+                    <a id="reportes-btn" class="relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-cyan-500 after:transition-all after:duration-300 hover:after:w-full cursor-pointer select-none">Reportes</a>
+                    <ul id="reportes-submenu" class="absolute left-0 mt-2 w-56 bg-white text-gray-800 rounded shadow-lg opacity-0 invisible transition-opacity duration-200 z-50">
+                        <li><a href="/server/static/templates/report_views/report_reservas.php" class="block px-4 py-2 hover:bg-cyan-100">Reservas</a></li>
+                        <li><a href="/server/static/templates/report_views/report_temporada.php" class="block px-4 py-2 hover:bg-cyan-100">Desplazamientos por Temporada</a></li>
+                        <li><a href="/server/static/templates/report_views/report_cancelaciones.php" class="block px-4 py-2 hover:bg-cyan-100">Cancelaciones</a></li>
+                        <li><a href="/server/static/templates/report_views/report_destinos.php" class="block px-4 py-2 hover:bg-cyan-100">Destinos</a></li>
+                    </ul>
+                </li>
                 <li class="">
                     <form action="/server/app/controllers/auth_controllers/logout.php" method="POST"
                         style="display:inline;">
@@ -43,3 +52,4 @@
         <!-- <aside class="h-full bg-gray-800 w-1/5 "></aside>
     
     </button> -->
+    <script src="/server/static/scripts/navbarMenu.js"></script>

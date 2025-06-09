@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sexo = (string)$_POST['sexo'];
     $clave = $_POST['clave'];
     $confirmar_clave = $_POST['confirmar_clave'];
+    $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : 'Operador';
 
 
     if ($clave !== $confirmar_clave) {
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    if (registerUser($nombre, $apellido, $pasaporte, $edad, $sexo, $clave)) {
+    if (registerUser($nombre, $apellido, $pasaporte, $edad, $sexo, $clave, $tipo)) {
         header("Location: /server/static/templates/auth_view/login.php?success=1");
         exit();
     } else {

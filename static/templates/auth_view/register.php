@@ -48,6 +48,16 @@
           class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" />
       </div>
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="space-y-2">
+        <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo de usuario</label>
+        <select name="tipo" required
+          class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200">
+          <option value="Operador">Operador</option>
+          <option value="Supervisor">Supervisor</option>
+        </select>
+      </div>
+    </div>
     <button type="submit"
       class="w-full py-2 px-4 bg-cyan-500 hover:bg-cyan-600 text-white font-medium rounded-md transition duration-200 shadow-sm hover:shadow-md">
       Registrarse
