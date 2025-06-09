@@ -20,6 +20,7 @@ function login($passport, $password) {
         if (password_verify($password, $user['clave'])) {
             $_SESSION['user_id'] = $user['codigo'];
             $_SESSION['user_name'] = $user['nombre'];
+            $_SESSION['user_tipo'] = $user['tipo']; // Store user type in session
             return true;
         }
     }

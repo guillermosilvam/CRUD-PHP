@@ -1,5 +1,11 @@
-<?php include "../../../app/includes/navbar.php"; ?>
-<?php include "../../../app/controllers/report_controllers/get_report_cancellations.php"; ?>
+<?php
+include "../../../app/includes/navbar.php";
+if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['user_tipo']) || $_SESSION['user_tipo'] !== 'Supervisor') {
+    header('Location: /server/static/templates/dashboard/dashboard.php');
+    exit();
+}
+include "../../../app/controllers/report_controllers/get_report_cancellations.php"; ?>
 
 <div class="w-full min-h-screen flex justify-center bg-[#f2f2f2]">
     <div class="w-full max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-lg border border-gray-200 mt-8">
