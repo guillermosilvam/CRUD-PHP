@@ -11,6 +11,11 @@
             <a href="/server/static/templates/city_views/create_city.php"
                 class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md transition duration-200 shadow-sm hover:shadow-md ml-2 flex items-center justify-center h-[40px]">Agregar</a>
         </div>
+        <?php if (isset($_GET['error']) && $_GET['error'] === 'usada'): ?>
+            <div class="w-full max-w-2xl mx-auto mb-4 p-4 bg-red-100 text-red-700 rounded text-center font-semibold border border-red-300">
+                No se puede eliminar la ciudad porque está siendo utilizada en otro registro.
+            </div>
+        <?php endif; ?>
         <div class="overflow-x-auto rounded-lg shadow">
             <table class="min-w-full text-sm font-medium text-center text-gray-700 border border-gray-200">
                 <thead class="bg-cyan-500 text-white">

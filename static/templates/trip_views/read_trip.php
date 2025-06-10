@@ -2,6 +2,11 @@
 <?php include "../../../app/includes/navbar.php" ?>
 <div class="w-full h-full flex items-center justify-center">
     <div class="w-full max-w-4xl h-full bg-white p-8 rounded-lg shadow-lg">
+        <?php if (isset($_GET['error']) && $_GET['error'] === 'usado'): ?>
+            <div class="w-full max-w-2xl mx-auto mb-4 p-4 bg-red-100 text-red-700 rounded text-center font-semibold border border-red-300">
+                No se puede eliminar el viaje porque está siendo utilizado en otro registro.
+            </div>
+        <?php endif; ?>
         <div class="flex items-center justify-center gap-2 mb-6 w-full">
             <input type="search" name="busqueda" class="w-64 px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200" placeholder="Buscar">
             <button class="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white font-medium rounded-md transition duration-200 shadow-sm hover:shadow-md">Buscar</button>
