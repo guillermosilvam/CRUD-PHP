@@ -1,7 +1,7 @@
 <?php include "../../../app/config/database.php" ?>
 <?php include "../../../app/includes/navbar.php" ?>
-<div class="w-full h-full flex items-center justify-center">
-    <div class="w-full max-w-4xl h-full bg-white p-8 rounded-lg shadow-lg">
+<div class="w-full flex items-center justify-center">
+    <div class="w-full max-w-4xl bg-white p-8 rounded-lg shadow-lg">
         <?php if (isset($_GET['error']) && $_GET['error'] === 'usado'): ?>
             <div class="w-full max-w-2xl mx-auto mb-4 p-4 bg-red-100 text-red-700 rounded text-center font-semibold border border-red-300">
                 No se puede eliminar el viaje porque está siendo utilizado en otro registro.

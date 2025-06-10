@@ -3,7 +3,6 @@
 <?php
 $viajes = mysqli_query($conn, "SELECT v.codigo, t.nombre AS tren, c_origen.nombre AS ciudad_origen, c_destino.nombre AS ciudad_destino, v.fecha, v.hora FROM viajes v JOIN trenes t ON v.fk_codigo_tren = t.codigo JOIN ciudades c_origen ON v.fk_codigo_origen = c_origen.codigo JOIN ciudades c_destino ON v.fk_codigo_destino = c_destino.codigo");
 
-// Obtener datos de la reservación y pasajeros
 $reservacion = null;
 $pasajeros = [];
 if (isset($_GET['id'])) {
@@ -32,7 +31,6 @@ if (isset($_GET['id'])) {
                 <input type="text"
     value="<?php
         if ($reservacion) {
-            // Busca el viaje seleccionado
             $viajeSel = null;
             $viajes = mysqli_query($conn, "SELECT v.codigo, t.nombre AS tren, c_origen.nombre AS ciudad_origen, c_destino.nombre AS ciudad_destino, v.fecha, v.hora FROM viajes v JOIN trenes t ON v.fk_codigo_tren = t.codigo JOIN ciudades c_origen ON v.fk_codigo_origen = c_origen.codigo JOIN ciudades c_destino ON v.fk_codigo_destino = c_destino.codigo");
             while($v = mysqli_fetch_assoc($viajes)) {
@@ -46,30 +44,31 @@ if (isset($_GET['id'])) {
             }
         }
     ?>"
-    class="w-full px-4 py-2 rounded-md" style="background-color: #e5e7eb; color: #6b7280; border: 2px #9ca3af; cursor: not-allowed;"
+    class="w-full px-4 py-2 rounded-md"
+    style="background-color: #e5e7eb; color: #6b7280; border: 2px solid #9ca3af; cursor: not-allowed;"
     readonly disabled
 />
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="space-y-2">
                     <label class="block text-sm font-medium text-gray-700">Nombre del Solicitante</label>
-                    <input type="text" name="cliente_nombre" required value="<?php echo $reservacion ? htmlspecialchars($reservacion['solicitante_nombre']) : ''; ?>" class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200"/>
+                    <input type="text" name="cliente_nombre" required value="<?php echo $reservacion ? htmlspecialchars($reservacion['solicitante_nombre']) : ''; ?>" class="w-full px-4 py-2 rounded-md" style="background-color: #e5e7eb; color: #6b7280; border: 2px solid #9ca3af; cursor: not-allowed;" readonly disabled />
                 </div>
                 <div class="space-y-2">
                     <label class="block text-sm font-medium text-gray-700">Apellido del Solicitante</label>
-                    <input type="text" name="cliente_apellido" required value="<?php echo $reservacion ? htmlspecialchars($reservacion['solicitante_apellido']) : ''; ?>" class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200"/>
+                    <input type="text" name="cliente_apellido" required value="<?php echo $reservacion ? htmlspecialchars($reservacion['solicitante_apellido']) : ''; ?>" class="w-full px-4 py-2 rounded-md" style="background-color: #e5e7eb; color: #6b7280; border: 2px solid #9ca3af; cursor: not-allowed;" readonly disabled />
                 </div>
                 <div class="space-y-2">
                     <label class="block text-sm font-medium text-gray-700">Nro de Pasaporte</label>
-                    <input type="text" name="cliente_pasaporte" required value="<?php echo $reservacion ? htmlspecialchars($reservacion['solicitante_pasaporte']) : ''; ?>" class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200"/>
+                    <input type="text" name="cliente_pasaporte" required value="<?php echo $reservacion ? htmlspecialchars($reservacion['solicitante_pasaporte']) : ''; ?>" class="w-full px-4 py-2 rounded-md" style="background-color: #e5e7eb; color: #6b7280; border: 2px solid #9ca3af; cursor: not-allowed;" readonly disabled />
                 </div>
                 <div class="space-y-2">
                     <label class="block text-sm font-medium text-gray-700">Edad</label>
-                    <input type="number" name="cliente_edad" min="0" required value="<?php echo $reservacion ? intval($reservacion['solicitante_edad']) : ''; ?>" class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200"/>
+                    <input type="number" name="cliente_edad" min="0" required value="<?php echo $reservacion ? intval($reservacion['solicitante_edad']) : ''; ?>" class="w-full px-4 py-2 rounded-md" style="background-color: #e5e7eb; color: #6b7280; border: 2px solid #9ca3af; cursor: not-allowed;" readonly disabled />
                 </div>
                 <div class="space-y-2">
                     <label class="block text-sm font-medium text-gray-700">Sexo</label>
-                    <select name="cliente_sexo" required class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200">
+                    <select name="cliente_sexo" required class="w-full px-4 py-2 rounded-md" style="background-color: #e5e7eb; color: #6b7280; border: 2px solid #9ca3af; cursor: not-allowed;" disabled tabindex="-1">
                         <option value="Masculino" <?php if($reservacion && $reservacion['solicitante_sexo'] == 'Masculino') echo 'selected'; ?>>Masculino</option>
                         <option value="Femenino" <?php if($reservacion && $reservacion['solicitante_sexo'] == 'Femenino') echo 'selected'; ?>>Femenino</option>
                     </select>
@@ -84,10 +83,10 @@ if (isset($_GET['id'])) {
             </div>
             <div class="space-y-2">
                 <label class="block text-sm font-medium text-gray-700">Número de puestos (máx 4)</label>
-                <input type="number" name="cantidad_puestos" id="cantidad_puestos" min="1" max="4" value="<?php echo $reservacion ? intval($reservacion['cantidad_puestos']) : '1'; ?>" required class="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 text-gray-800 focus:outline-none focus:bg-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition duration-200"/>
+                <input type="number" name="cantidad_puestos" id="cantidad_puestos" min="1" max="4" value="<?php echo $reservacion ? intval($reservacion['cantidad_puestos']) : '1'; ?>" class="w-full px-4 py-2 rounded-md" style="background-color: #e5e7eb; color: #6b7280; border: 2px solid #9ca3af; cursor: not-allowed;" readonly disabled />
             </div>
             <div id="pasajeros-section" class="space-y-4">
-                <!-- Aquí puedes cargar los pasajeros si lo deseas -->
+                <!-- Aqui se cargan los pasajeros -->
             </div>
             <button type="submit" class="w-full py-2 px-4 bg-cyan-500 hover:bg-cyan-600 text-white font-medium rounded-md transition duration-200 shadow-sm hover:shadow-md">Guardar Reservación</button>
         </form>
