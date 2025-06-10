@@ -117,3 +117,10 @@ html.dark .report-bg {
     background-color: #23232a !important;
     color: #f3f4f6 !important;
 }
+html.dark .report-container.bg-white,
+html.dark .bg-white.report-container {
+    background-color: #23232a !important;
+    color: #f3f4f6 !important;
+}
+
+

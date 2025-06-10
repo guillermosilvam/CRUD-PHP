@@ -8,8 +8,8 @@ if (!isset($_SESSION['user_tipo']) || $_SESSION['user_tipo'] !== 'Supervisor') {
 include "../../../app/controllers/report_controllers/get_report_destination.php";
 ?>
 
-<div class="w-full flex justify-center bg-[#f2f2f2] py-8">
-    <div class="w-full max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-lg border border-gray-200">
+<div class="w-full flex justify-center bg-gray-100 dark:bg-[#18181b] py-8">
+    <div class="w-full max-w-5xl mx-auto p-8 bg-white report-container rounded-lg shadow-lg border border-gray-200">
         <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Reporte de Destinos</h2>
         <form method="GET" class="mb-6 flex flex-wrap gap-4 items-end justify-center">
             <div>
