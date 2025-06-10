@@ -46,7 +46,7 @@ if (
             $sql = "INSERT INTO pasajeros (fk_pasaporte, fk_codigo_reservacion, asiento, clase, precio) VALUES ('$p_pasaporte', $reservacion_id, '$p_asiento', '$p_clase', $p_precio)";
             mysqli_query($conn, $sql);
         }
-        header("Location: /server/static/templates/reservation_views/create_reservation.php?success=1");
+        header("Location: /server/static/templates/reservation_views/read_reservation.php?success=1");
         exit();
     } else {
         echo "Error al guardar la reservación: " . mysqli_error($conn);

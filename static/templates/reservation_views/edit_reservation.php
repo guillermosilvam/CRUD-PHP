@@ -86,7 +86,7 @@ if (isset($_GET['id'])) {
                 <input type="number" name="cantidad_puestos" id="cantidad_puestos" min="1" max="4" value="<?php echo $reservacion ? intval($reservacion['cantidad_puestos']) : '1'; ?>" class="w-full px-4 py-2 rounded-md" style="background-color: #e5e7eb; color: #6b7280; border: 2px solid #9ca3af; cursor: not-allowed;" readonly disabled />
             </div>
             <div id="pasajeros-section" class="space-y-4">
-                <!-- Aqui se cargan los pasajeros -->
+                
             </div>
             <button type="submit" class="w-full py-2 px-4 bg-cyan-500 hover:bg-cyan-600 text-white font-medium rounded-md transition duration-200 shadow-sm hover:shadow-md">Guardar Reservación</button>
         </form>
@@ -97,5 +97,5 @@ if (isset($_GET['id'])) {
 <script>
     window.pasajerosAntiguos = <?php echo json_encode($pasajeros); ?>;
 </script>
-<script src="../../scripts/renderFields.js"></script>
+<script src="../../scripts/renderFieldsDisabled.js"></script>
 </html>
