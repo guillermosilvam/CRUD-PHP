@@ -14,7 +14,6 @@ if (
     $pasajeros = $_POST['pasajeros'];
     $fecha_creacion = date('Y-m-d H:i:s');
 
-    // Verificar o crear cliente solicitante
     $sql = "SELECT pasaporte FROM clientes WHERE pasaporte = '$cliente_pasaporte' LIMIT 1";
     $result = mysqli_query($conn, $sql);
     if (!$result || !mysqli_fetch_assoc($result)) {
@@ -23,12 +22,10 @@ if (
     }
 
 
-    // Insertar reservación
     $sql = "INSERT INTO reservaciones (fk_pasaporte_solicitante, fk_codigo_viaje, cantidad_puestos, estado, fecha_creacion) VALUES ('$cliente_pasaporte', $trip_id, $cantidad_puestos, 'Activo', '$fecha_creacion')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $reservacion_id = mysqli_insert_id($conn);
-        // Insertar pasajeros
         foreach ($pasajeros as $p) {
             $p_nombre = mysqli_real_escape_string($conn, $p['nombre']);
             $p_apellido = mysqli_real_escape_string($conn, $p['apellido']);
@@ -39,7 +36,6 @@ if (
             $p_asiento = mysqli_real_escape_string($conn, $p['asiento']);
             $p_precio = (int)$p['precio'];
 
-            // Verificar o crear cliente pasajero
             $sql = "SELECT pasaporte FROM clientes WHERE pasaporte = '$p_pasaporte' LIMIT 1";
             $res = mysqli_query($conn, $sql);
             if (!mysqli_fetch_assoc($res)) {
@@ -47,7 +43,6 @@ if (
                 mysqli_query($conn, $sql);
             }
 
-            // Insertar pasajero
             $sql = "INSERT INTO pasajeros (fk_pasaporte, fk_codigo_reservacion, asiento, clase, precio) VALUES ('$p_pasaporte', $reservacion_id, '$p_asiento', '$p_clase', $p_precio)";
             mysqli_query($conn, $sql);
         }

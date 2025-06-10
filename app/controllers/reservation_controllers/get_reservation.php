@@ -1,7 +1,6 @@
 <?php
 include "../../../app/config/database.php";
 
-// Consulta para obtener reservaciones con solicitante, pasajeros, ciudades y fecha
 $sql = "SELECT r.codigo, c.nombre AS solicitante_nombre, c.apellido AS solicitante_apellido, v.fecha,
                c_origen.nombre AS ciudad_origen, c_destino.nombre AS ciudad_destino, r.estado
         FROM reservaciones r

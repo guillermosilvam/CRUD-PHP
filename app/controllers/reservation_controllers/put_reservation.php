@@ -13,19 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cliente_sexo = mysqli_real_escape_string($conn, $_POST['cliente_sexo']);
     $pasajeros = isset($_POST['pasajeros']) ? $_POST['pasajeros'] : [];
 
-    // Actualizar datos del solicitante
     $sql = "UPDATE clientes SET nombre='$cliente_nombre', apellido='$cliente_apellido', edad=$cliente_edad, sexo='$cliente_sexo' WHERE pasaporte='$cliente_pasaporte'";
     mysqli_query($conn, $sql);
 
-    // Actualizar reservación
     $sql = "UPDATE reservaciones SET fk_pasaporte_solicitante='$cliente_pasaporte', fk_codigo_viaje=$trip_id, cantidad_puestos=$cantidad_puestos, estado='$estado' WHERE codigo=$codigo";
     mysqli_query($conn, $sql);
 
-    // Eliminar pasajeros anteriores
     $sql = "DELETE FROM pasajeros WHERE fk_codigo_reservacion=$codigo";
     mysqli_query($conn, $sql);
 
-    // Insertar pasajeros nuevos
     foreach ($pasajeros as $p) {
         $p_nombre = mysqli_real_escape_string($conn, $p['nombre']);
         $p_apellido = mysqli_real_escape_string($conn, $p['apellido']);
@@ -35,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $p_clase = mysqli_real_escape_string($conn, $p['clase']);
         $p_asiento = mysqli_real_escape_string($conn, $p['asiento']);
         $p_precio = intval($p['precio']);
-        // Verificar o crear cliente pasajero
+
         $sql = "SELECT pasaporte FROM clientes WHERE pasaporte = '$p_pasaporte' LIMIT 1";
         $res = mysqli_query($conn, $sql);
         if (!mysqli_fetch_assoc($res)) {
@@ -45,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql = "UPDATE clientes SET nombre='$p_nombre', apellido='$p_apellido', edad=$p_edad, sexo='$p_sexo' WHERE pasaporte='$p_pasaporte'";
             mysqli_query($conn, $sql);
         }
-        // Insertar pasajero
         $sql = "INSERT INTO pasajeros (fk_codigo_reservacion, fk_pasaporte, clase, asiento, precio) VALUES ($codigo, '$p_pasaporte', '$p_clase', '$p_asiento', $p_precio)";
         mysqli_query($conn, $sql);
     }

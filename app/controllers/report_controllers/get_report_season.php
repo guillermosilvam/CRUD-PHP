@@ -1,7 +1,6 @@
 <?php
 include "../../../app/config/database.php";
 
-
 $estado = isset($_GET['estado']) ? $_GET['estado'] : '';
 $fecha_inicio = isset($_GET['fecha_inicio']) ? $_GET['fecha_inicio'] : '';
 $fecha_fin = isset($_GET['fecha_fin']) ? $_GET['fecha_fin'] : '';

@@ -8,7 +8,6 @@ if (isset($_POST['tren_id'], $_POST['origen'], $_POST['destino'], $_POST['fecha'
     $fecha = $_POST['fecha'];
     $hora = $_POST['hora'];
 
-    
     $check_sql = "SELECT * FROM viajes WHERE fk_codigo_tren = $tren_id AND fecha = '$fecha' AND hora = '$hora'";
     $check_result = mysqli_query($conn, $check_sql);
     if (mysqli_num_rows($check_result) > 0) {
