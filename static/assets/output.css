@@ -319,9 +319,6 @@
   .h-screen {
     height: 100vh;
   }
-  .max-h-\[500px\] {
-    max-height: 500px;
-  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -453,9 +450,6 @@
   .overflow-x-hidden {
     overflow-x: hidden;
   }
-  .overflow-y-auto {
-    overflow-y: auto;
-  }
   .rounded {
     border-radius: 0.25rem;
   }
@@ -498,6 +492,9 @@
   }
   .border-red-300 {
     border-color: var(--color-red-300);
+  }
+  .bg-\[\#18181b\] {
+    background-color: #18181b;
   }
   .bg-\[\#f2f2f2\] {
     background-color: #f2f2f2;
